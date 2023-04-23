@@ -12,7 +12,7 @@ const Header: React.FC<HeaderInterface> = ({ searchQuery, setSearchQuery }) => {
     <Container>
       <Head>
         <AppName>
-          <MovieLogo src="../assets/movielogo.svg" />
+          <MovieLogo src="src/assets/movielogo.svg" />
           {Copy.HEADER_TITLE}
         </AppName>
         <SearchBar setSearchQuery={setSearchQuery} searchQuery={searchQuery} />

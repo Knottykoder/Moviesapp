@@ -8,6 +8,7 @@ import {
 
 interface MoviecardInterface {
   item: MovieIteminterface;
+  setMovieId(args: number): void;
 }
 
 export interface MovieIteminterface {
@@ -17,9 +18,9 @@ export interface MovieIteminterface {
   id: number;
 }
 
-const MovieCard: React.FC<MoviecardInterface> = ({ item }) => {
+const MovieCard: React.FC<MoviecardInterface> = ({ item,setMovieId }) => {
   return (
-    <MovieContainer>
+    <MovieContainer onClick={() => setMovieId(item.id)}>
       <CoverImg src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} />
       <MovieName>{item.title}</MovieName>
       <InfoColumn>
