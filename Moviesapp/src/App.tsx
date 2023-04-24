@@ -10,12 +10,12 @@ function App() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [movieId, setMovieId] = useState(0);
   const movies = useMovieFetch(searchQuery);
-  const movieDetails = useMovieDetails(movieId);
+  const [movieDetails,isShow,setIsShow] = useMovieDetails(movieId);
   
   return (
     <>
       <Header setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
-      {movieDetails?.title && <MovieInfo movieDetails={movieDetails} setMovieId={setMovieId}/>}
+      {movieDetails?.title && <MovieInfo movieDetails={movieDetails} setIsShow={setIsShow} isShow={isShow}/>}
       <MovieList movies={movies} setMovieId={setMovieId}/>
     </>
   );

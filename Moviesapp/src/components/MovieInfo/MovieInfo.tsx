@@ -17,18 +17,20 @@ export interface MovieDetailsinterface {
   overview: string;
 }
 
-interface MovieInfoInterface {
-  movieDetails: MovieDetailsinterface;
-  setMovieId(): void;
-}
+// interface MovieInfoInterface {
+//   movieDetails: MovieDetailsinterface;
+//   isShow?: boolean;
+//   setIsShow(args: boolean): void;
+// }
 
-const MovieInfo: React.FC<MovieInfoInterface> = ({
+const MovieInfo: React.FC<any> = ({
   movieDetails,
-  setMovieId,
+  isShow,
+  setIsShow,
 }) => {
   return (
     <Container>
-      {movieDetails?.title ? (
+      { isShow && (
         <>
           <CoverImg
             src={`http://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}
@@ -51,10 +53,8 @@ const MovieInfo: React.FC<MovieInfoInterface> = ({
               Plot: <span>{movieDetails?.overview}</span>
             </MovieInfoRow>
           </InfoColumn>
-          <Close onClick={() => setMovieId()}>X</Close>
+          <Close onClick={() => setIsShow(false)}>X</Close>
         </>
-      ) : (
-        "Loading..."
       )}
     </Container>
   );
