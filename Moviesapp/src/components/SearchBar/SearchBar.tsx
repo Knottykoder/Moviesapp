@@ -7,7 +7,7 @@ const SearchBar: React.FC<SearchBarInterface> = ({
 }) => {
   return (
     <SearchBox>
-        <SearchIcon src="src/assets/icons8-search.svg"/>
+        <SearchIcon src="/icons8-search.svg"/>
         <SearchInput placeholder="Search Movie.." onChange={(e)=> setSearchQuery(e.target.value)} value={searchQuery}/>
     </SearchBox>
   )
